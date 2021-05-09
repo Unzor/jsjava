@@ -9,15 +9,19 @@
   
   </div>
       <script>
+                var jsjava=new JSJava();
+
         function submitCode(){
         var input=document.getElementById('input');
                   var result=document.getElementById('result');
-          var jsjava=new JSJava();
 jsjava.setFileName('Main.java');
 jsjava.onCallback=function(output){
-console.log(output);
+var resElement=document.createElement('code');
+  resElement.innerText=output;
+  resElement.appendChild(result);
 }
 jsjava.setCode(input.value);
 jsjava.run();
         }
+  </script>
 </body>
