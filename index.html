@@ -1,0 +1,23 @@
+<body>
+  <script src="jsjava.min.js"></script>`
+  <h1>
+  JSJava Playground
+</h1>
+  <textarea id="input"></textarea>
+  <button onclick="submitCode()"> Run Code</button>
+  <div id="result">
+  
+  </div>
+      <script>
+        function submitCode(){
+        var input=document.getElementById('input');
+                  var result=document.getElementById('result');
+          var jsjava=new JSJava();
+jsjava.setFileName('Main.java');
+jsjava.onCallback=function(output){
+console.log(output);
+}
+jsjava.setCode(input.value);
+jsjava.run();
+        }
+</body>
