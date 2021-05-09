@@ -4,7 +4,7 @@ JSJava is a JavaScript library that connects to a Java VM via WebSocket. I made 
 # API
 To use the JSJava API, use this example script:
 
-```
+```javascript
 var jsjava=new JSJava();
 jsjava.setFileName('Main.java');
 jsjava.onCallback=function(output){
