@@ -20,6 +20,7 @@
         function submitCode(){
         var input=document.getElementById('input');
                   var result=document.getElementById('result');
+          result.innerHTML="";
 jsjava.setFileName('Main.java');
 jsjava.onCallback=function(output){
 var resElement=document.createElement('code');
