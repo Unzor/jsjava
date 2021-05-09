@@ -1,5 +1,5 @@
 <body>
-  <script src="jsjava.min.js"></script>`
+  <script src="jsjava.min.js"></script>
   <h1>
   JSJava Playground
 </h1>
@@ -18,7 +18,7 @@ jsjava.setFileName('Main.java');
 jsjava.onCallback=function(output){
 var resElement=document.createElement('code');
   resElement.innerText=output;
-  resElement.appendChild(result);
+  result.appendChild(resElement);
 }
 jsjava.setCode(input.value);
 jsjava.run();
