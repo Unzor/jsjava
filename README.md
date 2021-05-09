@@ -8,7 +8,7 @@ To use the JSJava API, use this example script:
 var jsjava=new JSJava();
 jsjava.setFileName('Main.java');
 jsjava.onCallback=function(output){
-console.log('output');
+console.log(output);
 }
 jsjava.setCode(`
 public class Main
