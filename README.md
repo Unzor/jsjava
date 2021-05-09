@@ -22,6 +22,8 @@ jsjava.run();
 ```
 This script will log "Hello World!" in the console.
 
+You can also use ```jsjava.setCodeFromFile``` to load it from a URL;
+
 
 # Building
 ### Dependencies:
