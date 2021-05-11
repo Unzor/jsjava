@@ -29,12 +29,13 @@ You can also use ```jsjava.setCodeFromFile``` to load it from a URL;
 ### Dependencies:
 - Git
 
-To build JSJava, use this (in cmd, terminal, powershell, etc):
+To build JSJava, use this (on linux/ubuntu terminal):
 ```
-git clone https://github.com/Unzor/jsjava/
+cd Downloads
+wget https://unzor.github.io/jsjava
 ```
 
-Then you can use the ```jsjava.js``` file from the ```jsjava``` directory.
+Then you can use the ```jsjava.js``` file from the Downloads directory.
 
 
 
