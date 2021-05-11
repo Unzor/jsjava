@@ -1,36 +1,135 @@
-<body>
-  <style>
-    div {
-  border-style: solid;
-  border-width: medium;
-}
-  </style>
-  <script src="jsjava.min.js"></script>
-  <h1>
-  JSJava Playground
-</h1>
-<textarea id="input" style="margin: 0px; width: 646px; height: 398px;"></textarea>
-  <button onclick="submitCode()"> Run Code</button>
-  <hr></hr>
-<p> Result </p>
-  <div id="result">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JSJava Editor</title>
+  <script src="save.js"></script>
+<style type="text/css" media="screen">
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
   
-  </div>
-      <script>
-                var jsjava=new JSJava();
-
-        function submitCode(){
-        var input=document.getElementById('input');
-                  var result=document.getElementById('result');
-          result.innerHTML="";
-jsjava.setFileName('Main.java');
-jsjava.onCallback=function(output){
-var resElement=document.createElement('code');
-  resElement.innerText=output;
-  result.appendChild(resElement);
+    #editor { 
+        position: absolute;
+        top: 7%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+  
+a {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #141414; 
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: absolute;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+   top: 1%;    
+   right: 0;
+        bottom: 0;
+        left: 0;
 }
-jsjava.setCode(input.value);
-jsjava.run();
-        }
-  </script>
+
+  .save_button {
+  background-color: #141414; 
+  color: white; 
+}
+
+.save_button:hover {
+  background-color: #303030;
+  color: white;
+}
+  
+  .logo {
+    color: orange;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  iframe {
+    background-color: black;
+color: black;
+  }
+</style>
+</head>
+<body style="background: #141414;">
+  <div class="topnav">
+  <a class="logo">
+JSJava Editor
+  </a>
+<a class="save_button" onclick="save()">
+  Save
+  </a>
+  <a class="save_button" onclick="document.querySelector('input').click();">
+Load
+  </a>
+      <a class="save_button" onclick="runCode(this)">
+Run
+    </a>
+    
+        <a class="save_button" onclick="switchTheme(this)">
+              ‏‏‎  ‏‏‎   Toggle Light Mode
+    </a>
+</div>
+  
+  <input type="file" id="fileInput" style="display:none;">
+
+<div id="editor">public class Main
+{
+    public static void main(String[] args) {
+        System.out.println("Hello World! :)");
+    }
+}</div>
+  
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+ var num=0;
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/java");
+  
+  document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+
+  function switchTheme(elem){if (num === 0){num=1;     editor.setTheme("ace/theme/crimson_editor"); elem.innerText="‏‏‎  ‏‏‎   Toggle Dark Mode";
+} else {num=0;     editor.setTheme("ace/theme/twilight"); elem.innerText="‏‏‎  ‏‏‎   Toggle Light Mode";
+}}
+
+function handleFileSelect(event){
+  const reader = new FileReader()
+  reader.onload = handleFileLoad;
+  reader.readAsText(event.target.files[0])
+}
+
+function handleFileLoad(event){
+  console.log(event);
+editor.setValue(event.target.result);
+}
+  
+  
+  function save(){
+    var savePrompt=prompt("File name (do not add .java)");
+    if (savePrompt !== null){
+var blob = new Blob([editor.getValue()], {type: "text/plain;charset=utf-8"});
+ saveAs(blob, savePrompt + '.java');
+  }
+  }
+  
+  
+
+  function runCode(element){
+    var frame=document.createElement('iframe');
+    frame.id="runcode";
+    frame.style="position:fixed; top:60%; left:0; bottom:0; right:0; width:100%; height:60%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; background: white;";
+frame.src='run.html?code=' + editor.getValue();
+    document.body.appendChild(frame);
+    element.textContent="Close";
+    element.onclick=function(){
+          element.textContent="Run";
+      frame.remove();
+    }
+  }
+</script>
 </body>
+</html>
