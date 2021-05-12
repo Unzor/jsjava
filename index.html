@@ -64,7 +64,7 @@ JSJava Editor
   <a class="save_button" onclick="document.querySelector('input').click();">
 Load
   </a>
-      <a class="save_button" onclick="runCode(this)">
+      <a class="save_button" id="run_btn" onclick="runCode(this)">
 Run
     </a>
     
@@ -130,6 +130,8 @@ frame.src='run.html?code=' + editor.getValue();
       frame.remove();
     }
   }
+  
+  document.querySelector('#run_btn').onclick=runCode(document.querySelector('#run_btn'));
 </script>
 </body>
 </html>
