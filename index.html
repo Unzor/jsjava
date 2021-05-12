@@ -128,6 +128,7 @@ frame.src='run.html?code=' + editor.getValue();
     element.onclick=function(){
           element.textContent="Run";
       frame.remove();
+          element.onclick=function(){runCode(element)};
     }
   }
   
