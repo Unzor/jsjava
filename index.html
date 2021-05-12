@@ -131,7 +131,7 @@ frame.src='run.html?code=' + editor.getValue();
     }
   }
   
-  document.querySelector('#run_btn').onclick=runCode(document.querySelector('#run_btn'));
+  document.querySelector('#run_btn').onclick=function(){runCode(document.querySelector('#run_btn'));};
 </script>
 </body>
 </html>
