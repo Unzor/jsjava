@@ -32,7 +32,7 @@ You can also use ```jsjava.setCodeFromFile``` to load it from a URL;
 To build JSJava, use this (on linux/ubuntu terminal):
 ```
 cd Downloads
-wget https://unzor.github.io/jsjava
+git clone https://github.com/Unzor/jsjava
 ```
 
 Then you can use the ```jsjava.js``` file from the Downloads directory.
