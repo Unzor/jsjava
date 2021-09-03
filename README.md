@@ -1,4 +1,5 @@
 # jsjava
+### Note: JSJava is deprecated. Use [REPLjs](https://github.com/Unzor/repljs) instead, which includes Java.
 JSJava is a JavaScript library that connects to a Java VM via WebSocket. I made it to mess around with Java in the browser, and not to use for big projects.
 
 # API
